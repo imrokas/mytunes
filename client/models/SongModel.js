@@ -2,7 +2,8 @@
 var SongModel = Backbone.Model.extend({
 
   defaults: {
-    count: 0
+    count: 0,
+    votes: 0
   },
 
   play: function(){
@@ -24,5 +25,13 @@ var SongModel = Backbone.Model.extend({
 
   plusOne: function() {
     this.set('count', this.get('count')+1);
+  },
+  upvote: function(){
+    this.set('votes', this.get('votes')+1);
+  },
+  downvote: function(){
+    if(this.get('votes') > 0) {
+      this.set('votes', this.get('votes')-1);
+    }
   }
 });

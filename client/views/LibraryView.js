@@ -8,6 +8,9 @@ var LibraryView = Backbone.View.extend({
     this.collection.on('change:count', function() {
       this.render();
     }, this);
+    this.collection.on('change:votes', function() {
+      this.render();
+    }, this);
   },
 
   render: function(){
