@@ -1,7 +1,8 @@
 // App.js - Defines a backbone model class for the whole app.
 var AppModel = Backbone.Model.extend({
   playlists: {
-    'default': new SongQueue()
+    'default': new SongQueue(),
+    'create new': {}
   },
   initialize: function(params){
     this.set('currentSong', new SongModel());
@@ -12,8 +13,6 @@ var AppModel = Backbone.Model.extend({
     }, this);
 
     this.get('songQueue').on('changedPlaylist',function(event){
-      console.log(event.idx);
-      console.log(event.value);
       if(event.idx === 1){
         this.playlists[event.value] = new SongQueue();
       } else {
